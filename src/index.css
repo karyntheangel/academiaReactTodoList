@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.app{
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+  padding: 5%;
+  background-color: antiquewhite;
+}
+.text-Line{
+  text-decoration:line-through!important;
+}
+.customCard{
+  background-color: antiquewhite!important;
+}

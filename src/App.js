@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { Todo_provider } from "./context/Todo_context";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Card } from "react-bootstrap";
+import AddTask from "./components/AddTask";
+import TaskList from "./components/TaskList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Todo_provider>
+      <section className="app">
+        <Card style={{ width: "75%" }} className='customCard'>
+          <Card.Body>
+            <Card.Title>To do List</Card.Title>
+            <Card.Subtitle className="mb-4 mt-4 text-muted ">
+              <div>Add a new thing to do</div>
+              <div>
+                <AddTask />
+              </div>
+            </Card.Subtitle>
+              <TaskList/>
+          </Card.Body>
+        </Card>
+      </section>
+    </Todo_provider>
   );
 }
 
