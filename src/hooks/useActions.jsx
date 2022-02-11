@@ -13,19 +13,17 @@ const useActions = () => {
     taskToChange.toDoActive = !taskToChange.toDoActive;
     setData([...data]);
   };
-  const addHandler =(e,newTask)=>{
-    e.preventDefault();
-   newTask.id=data.slice(-1)[0].id+1;
-   newTask.toDoActive= true;
-   setData([...data,newTask]);
-  }
+  const addHandler = (newTask) => {
+    newTask.id = data.slice(-1)[0].id + 1;
+    newTask.toDoActive = true;
+    setData([...data, newTask]);
+  };
   return {
     data,
     deleteHandler,
     changeStatusHandler,
-    addHandler
+    addHandler,
   };
 };
 
 export default useActions;
-

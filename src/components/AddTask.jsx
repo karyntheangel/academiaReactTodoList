@@ -1,28 +1,27 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import useActions from "../hooks/useActions";
+import { useForm } from "react-hook-form";
 
 const AddTask = () => {
   const { addHandler } = useActions();
-  const [task, setTask] = useState({
-    id: undefined,
-    toDoText: "",
-    toDoActive: true
-  });
-  const handlerInputChange = (event) => {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-
-    setTask((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({});
+  const onSubmit = (data) => addHandler(data);
 
   return (
-    <form onSubmit={(e) => addHandler(e,task)}>
-      <input type="text" name="toDoText" onChange={(e)=>handlerInputChange(e)} className="w-100 mt-3 mb-3" required/>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        {...register("toDoText", { required: true, maxLength: 50 })}
+        className="w-100 mt-3 mb-3"
+      />
+      <div className="text-danger mx-1 mb-3">
+        {errors.toDoText?.type === "required" &&
+          "Text is required in this field"}
+      </div>
       <Button type="submit" variant="info" className="text-white">
         Add Task
       </Button>

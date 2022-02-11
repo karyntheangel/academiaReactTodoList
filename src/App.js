@@ -9,7 +9,7 @@ function App() {
   return (
     <Todo_provider>
       <section className="app">
-        <Card style={{ width: "75%" }} className='customCard'>
+        <Card style={{ width: "75%" }} className="customCard">
           <Card.Body>
             <Card.Title>To do List</Card.Title>
             <Card.Subtitle className="mb-4 mt-4 text-muted ">
@@ -18,7 +18,7 @@ function App() {
                 <AddTask />
               </div>
             </Card.Subtitle>
-              <TaskList/>
+            <TaskList />
           </Card.Body>
         </Card>
       </section>
